@@ -38,3 +38,6 @@
 
 ## Демонстрация работы
 https://drive.google.com/file/d/1Fi_j_sNF6ODYH3veapIyHoz25cRsLB7c/view?usp=drive_link
+
+## Презентация решения
+https://drive.google.com/file/d/11OhXJN2Oxt8_YlGUKtzefDoU6GZKH-zE/view?usp=drive_link
