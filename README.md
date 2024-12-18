@@ -28,6 +28,10 @@
 - **Backend**: TS, ExpressJS, Postgresql, s3, MinIO
 - **Others**: docker, nginx, docker-compose
 ## Команда
+- **Беспалов Вениамин**: Backend, Devops. Студент 2 курса Университета МИСИС
+- **Данилов Максим**: Backend. Студент 3 курса РТУ МИРЭА
+- **Хачатрян Арсен**: Frontend. Студент 2 курса РТУ МИРЭА
+- **Зудилов Богдан**: Дизайнер, РМ. Студент 2 курса Московского политеха
 
 ## Архитектура
 <img width="751" alt="image" src="https://github.com/user-attachments/assets/6549d26e-e82a-4fc7-8e27-4a31a2d614c5" />
