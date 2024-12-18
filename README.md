@@ -1,50 +1,36 @@
-# React + TypeScript + Vite
+# Large Images
+## Решение задачи "Веб сервис для обработки сверхбольших изображений" от компании ИТЭЛМА на хакатоне "Цифровой суверинитет" от команды *misis x mirea x dmb*
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание
 
-Currently, two official plugins are available:
+**Large Images** — это проект, предназначенный для быстрого просмотра сверхбольших изображений. Основная проблема, которую решает наш сервис - просмотр сверхбольших изображений (например, скан различных тканей) на маломощных устройствах. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Функциональность
 
-## Expanding the ESLint configuration
+- **Обработка больших изображений**: при получении большого изображения, оно сразу делится на тайлы (небольшие прямоугольные части), после чего каждый тайл сжимается и отправляется в s3 хранилище, а при самом просмотре, эти тайлы асинхронно подгружаются, причем загружаются только те части, на которые непосредственно смотрит пользователь.
+- **Скорость и легковесность**: наше решение, в отличие от аналогов, легковесно и работает моментально. Наш сервис занимает лишь 200-300мб оперативной памяти. Это в 10+ раз меньше, чем у текущих аналогов на рынке (3-4 гб)
+- **Интеграция с OpenSeaDragon**: наше решение использует OpenSeaDragon для самого просмотра изображений  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Установка
 
-- Configure the top-level `parserOptions` property like this:
+1. **Клонируйте репозиторий**:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+   ```bash
+   git clone -b dev https://github.com/JateSatis/large_images.git
+   cd large_images
+2. **Запустите docker контейнер**:
+   ```bash
+   docker compose up -d --build
+Теперь наше решение доступно по *http://localhost:8080*
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Технологии и стек
+- **Frontend**: TS, React, scss, vite, OpenSeaDragon
+- **Backend**: TS, ExpressJS, Postgresql, s3, MinIO
+- **Others**: docker, nginx, docker-compose
+## Команда
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Архитектура
+<img width="751" alt="image" src="https://github.com/user-attachments/assets/6549d26e-e82a-4fc7-8e27-4a31a2d614c5" />
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Демонстрация работы
+https://drive.google.com/file/d/1Fi_j_sNF6ODYH3veapIyHoz25cRsLB7c/view?usp=drive_link
